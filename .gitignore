@@ -1,0 +1,17 @@
+# ignore latex build files
+*.aux
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.synctex.gz
+*.toc
+*.cpt
+
+# ignore extra files
+assets/code/game.py
