@@ -1,4 +1,4 @@
-# textemplate-notes
+# tex-template-notebook
 
 To automatically compile LaTeX in Codespaces, install 
 the following extensions:
@@ -14,23 +14,24 @@ sudo apt install texlive texlive-latex-extra latexmk
 
 ## Statement of Purpose
 
-This repository contains the LaTeX template I use to take notes in school. 
+This repository contains the LaTeX template I use to take notes in school. An improved version of ![tex-template-notes](https://github.com/ecrawford4/tex-template-notes).
 
 
+I added three custom environments: 
 
-I added three custom environments: one for examples
+> one for examples:
 
 ```LaTeX
 \examplebox{Example}{\lipsum[1]}
 ```
 
-one for definitions
+> one for definitions:
 
 ```LaTeX
 \definitionbox{Definition}{\lipsum[2]}
 ```
 
-and one for code:
+> and one for code:
 
 ```LaTeX
 \codeblockbox{Code Block}{python}{assets/code/example.py}
