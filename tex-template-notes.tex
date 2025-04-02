@@ -1,11 +1,15 @@
-\documentclass[]{article}
+\documentclass{book}
 
 \usepackage{pdfpages,enumitem,fancyhdr,
             cprotect,listings,xcolor,
             amsmath,amssymb,graphicx,
             subfigure,hyperref,fancyvrb,
-            tcolorbox,lipsum,float}
-\usepackage[includeheadfoot,margin=1.15in]{geometry}
+            tcolorbox,lipsum,float,
+            caption,changepage,footnote,
+            pgfornament,zref-user,zref-abspage}
+\usepackage[includeheadfoot,margin=0.5in]{geometry}
+            
+\pagestyle{fancy}
 
 %  Define these variables:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -81,16 +85,22 @@
 }
 
 \fancyhf{}
+\geometry{margin=0.5in, top=1in, bottom=1in, left=1in, right=1in}
+% \geometry{margin=0.5in}
 \lhead{\yourName \space | \yourEmail}
 \rhead{\classCode \space | \today \space | \num}
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{1.15pt}
 \renewcommand{\footrulewidth}{1.15pt}
+\renewcommand{\chaptermark}[1]{\markboth{\scshape #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\scshape #1}}
 \pagestyle{fancy}
 
-\begin{document}
+\fancyfoot{}
+\fancyfoot[C]{\thepage}
 
-% Title page.
+\begin{document}
+\frontmatter
 \begin{titlepage}
     \centering
 
@@ -143,13 +153,37 @@
 
 \end{titlepage}
 
-\noindent\textbf{1:}
+\thispagestyle{plain}
+\tableofcontents\listoffigures
 
+% \include{tex/preface}
+\mainmatter
 
-\examplebox{Example}{\lipsum[1]}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% Add Subfiles Here: %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\definitionbox{Definition}{\lipsum[2]}
+\include{tex/section1.tex}
+\include{tex/section2.tex}
 
-\codeblockbox{Code Block}{python}{assets/code/example.py}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
