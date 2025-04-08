@@ -52,15 +52,44 @@
 
 
 % Define a new environments called "example", "definition", and "codeblock".
+\newtcolorbox[auto counter, number within=section]{example}[1][]{
+    colback=blue!10!white,
+    colframe=blue!50!black,
+    fonttitle=\bfseries,
+    title={#1}, 
+    width=0.8\textwidth,
+    center title,
+    box align=center,
+    before=\par,
+    after=\par
+}
+\newtcolorbox[auto counter, number within=section]{definition}[1][]{
+    colback=red!5!white, 
+    colframe=red!75!black, 
+    fonttitle=\bfseries,
+    title={#1}, 
+    width=0.8\textwidth, 
+    center title, 
+    box align=center, 
+    before=\par, 
+    after=\par
+}
+\newtcolorbox[auto counter, number within=section]{codeblock}[1][]{
+    colback=gray!10!white, 
+    colframe=gray!50!black, 
+    fonttitle=\bfseries, 
+    title={#1}, 
+    width=0.8\textwidth, 
+    center title, 
+    box align=center, 
+    before=\par, 
+    after=\par
+}
 
-\newtcolorbox[auto counter, number within=section]{example}[1][]{colback=blue!10!white, colframe=blue!50!black, fonttitle=\bfseries, title=#1, width=0.8\textwidth, center title, box align=center}
-\newtcolorbox[auto counter, number within=section]{definition}[1][]{colback=red!5!white, colframe=red!75!black, fonttitle=\bfseries, title=#1, width=0.8\textwidth, center title, box align=center}
-\newtcolorbox[auto counter, number within=section]{codeblock}[1][]{colback=gray!10!white, colframe=gray!50!black, fonttitle=\bfseries, title=#1, width=0.8\textwidth, center title, box align=center}
-
-\newcommand{\examplebox}[2]{
+\newcommand{\examplebox}[2]{%
     \begin{figure}[!ht]
         \centering
-        \begin{example}[#1]
+        \begin{example}[{#1}]
             #2
         \end{example}
     \end{figure}
@@ -69,7 +98,7 @@
 \newcommand{\definitionbox}[2]{
     \begin{figure}[!ht]
         \centering
-        \begin{definition}[#1]
+        \begin{definition}[{#1}]
             #2
         \end{definition}
     \end{figure}
@@ -78,7 +107,7 @@
 \newcommand{\codeblockbox}[3]{
     \begin{figure}[!ht]
         \centering
-        \begin{codeblock}[#1]
+        \begin{codeblock}[{#1}]
             \lstinputlisting[language=#2, basicstyle=\ttfamily\normalsize]{#3}
         \end{codeblock}
     \end{figure}
